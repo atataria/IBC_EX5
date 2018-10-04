@@ -1,5 +1,7 @@
-#hello! here is our code
+v#hello! here is our code
 
 #alex - 1
 
-cat wages.csv | cut -d , -f 1,2 | tr ‘,’ ‘ ' | uniq
+#cat wages.csv | cut -d , -f 1,2 | sed 's/,/ /g' |sort -u | uniq -u > wages3.csv
+
+
