@@ -15,8 +15,5 @@ cat wages.csv | cut -d , -f 1,2,4 | sort -bnk 4
 
 #question 3
 val1=16
-val2=12
-for $file in [n]
-do
-cat $file cut -d , -f 3,4 | echo $val1 - $val2 | bc
-done
+val2=16
+cat $file | cut -d , -f 3,4 | echo $val1 - $val2 | bc
