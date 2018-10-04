@@ -1,0 +1,5 @@
+#hello! here is our code
+
+#alex - 1
+
+cat wages.csv | cut -d , -f 1,2 | tr ‘,’ ‘ ' | uniq
