@@ -17,8 +17,7 @@ echo "The number of females in the top ten earners in this data set"
 cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -nrk3 | head -n 10 | egrep -c 'female'
 
 #question 3
-val1=16
-val2=12
-
-cat wages.txt | cut -d , -f 3,4 | echo $val1 - $val2 | bc
-
+echo "The difference in wages between 16 and 12 year educations is"
+val1=$(cat wages.csv | cut -d , -f 3,4 | sed 's/,/ /g' | egrep -w 16 | sort -n -k 2 | head -n 1 | cut -d " " -f 2)
+val2=$(cat wages.csv | cut -d , -f 3,4 | sed 's/,/ /g' | egrep -w 12 | sort -n -k 2 | head -n 1 | cut -d " " -f 2)
+echo $val1 - $val2 | bc
