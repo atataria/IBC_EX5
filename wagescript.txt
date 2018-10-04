@@ -2,6 +2,17 @@ v#hello! here is our code
 
 #alex - 1
 
+<<<<<<< HEAD
 #cat wages.csv | cut -d , -f 1,2 | sed 's/,/ /g' |sort -u | uniq -u > wages3.csv
 
+=======
+cat wages.csv | cut -d , -f 1,2 | tr ‘,’ ‘ ' | uniq
+
+#jessica - 2
+#gives first and last (but not sorted)
+cat wages.csv | cut -d , -f 1,2,4 | sed '3,3294d' | tail -n 2
+
+#trying to sort data
+cat wages.csv | cut -d , -f 1,2,4 | sort -bnk 4
+>>>>>>> bbbbfb274698ef285ffd86a35260791942447fc8
 
