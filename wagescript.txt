@@ -2,21 +2,19 @@
 
 #alex - 1
 
-#cat wages.csv | cut -d , -f 1,2 | sed 's/,/ /g' |sort -u | uniq -u > wages3.csv
-
-cat wages.csv | cut -d , -f 1,2 | tr ‘,’ ‘ ' | uniq
+cat wages.csv | cut -d , -f 1,2 | sed 's/,/ /g' |sort -u | uniq -u > wages3.csv
 
 #jessica - 2
-#gives first and last (but not sorted)
-cat wages.csv | cut -d , -f 1,2,4 | sed '3,3294d' | tail -n 2
 
-#trying to sort data
-cat wages.csv | cut -d , -f 1,2,4 | sort -bnk 4
+#gives sorted data, top earner and worst earner
+cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -k3 | sed '2,3293d' | head -n 2
+
+#gives number of females in top 10
+cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -k3 | head -n 10 | egrep -c 'female'
 
 #question 3
 val1=16
 val2=12
-for $file in [n]
-do
-cat $file cut -d , -f 3,4 | echo $val1 - $val2 | bc
-done
+
+cat wages.txt | cut -d , -f 3,4 | echo $val1 - $val2 | bc
+
