@@ -7,10 +7,14 @@ cat wages.csv | cut -d , -f 1,2 | sed 's/,/ /g' |sort -u | uniq -u > wages3.csv
 #jessica - 2
 
 #gives sorted data, top earner and worst earner
-cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -k3 | sed '2,3293d' | head -n 2
+echo "The gender, years experience and wage for the highest earner is" 
+cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -nrk3 | head -n 1
 
-#gives number of females in top 10
-cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -k3 | head -n 10 | egrep -c 'female'
+echo "The gender, years experience and wage for the lowest earner is"
+cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -nrk3 | sed '2,3293d' | head -n 2 | tail -n 1
+
+echo "The number of females in the top ten earners in this data set" 
+cat wages.csv | cut -d , -f 1,2,4 | sort -t\, -nrk3 | head -n 10 | egrep -c 'female'
 
 #question 3
 val1=16
