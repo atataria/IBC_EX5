@@ -3,3 +3,11 @@
 #alex - 1
 
 cat wages.csv | cut -d , -f 1,2 | tr ‘,’ ‘ ' | uniq
+
+#jessica - 2
+#gives first and last (but not sorted)
+cat wages.csv | cut -d , -f 1,2,4 | sed '3,3294d' | tail -n 2
+
+#trying to sort data
+cat wages.csv | cut -d , -f 1,2,4 | sort -bnk 4
+
